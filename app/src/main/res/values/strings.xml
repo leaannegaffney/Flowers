@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">QuoteMe</string>
+    <string name="app_name">Quote Me</string>
     <string name="button_addCategory">Add Category</string>
     <string name="hint_categoryTitle">Category Title</string>
     <string name="menu_addCategory">Add</string>
@@ -7,5 +7,6 @@
     <string name="enter_category_title"> Please enter a Category Name </string>
     <string name="save_category"> Save Category </string>
     <string name="button_addQuote"> Add Quote </string>
+    <string name="button_addImage"> Add Image </string>
 
 </resources>

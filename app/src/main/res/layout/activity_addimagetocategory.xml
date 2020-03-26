@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.wit.quoteme.activities.QuoteMeActivity">
+    tools:context="org.wit.quoteme.activities.AddImageToCategoryActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
             <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbarAdd"
+                android:id="@+id/toolbarCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:titleTextColor="@color/colorPrimary"/>
@@ -38,31 +38,24 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/categoryTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:hint="@string/hint_categoryTitle"
-                    android:inputType="text"
-                    android:maxLength="25"
-                    android:maxLines="1"
-                    android:padding="8dp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="14sp"/>
-
                 <Button
-                    android:id="@+id/btnAdd"
+                    android:id="@+id/chooseImage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:background="@color/colorAccent"
                     android:paddingBottom="8dp"
                     android:paddingTop="8dp"
-                    android:stateListAnimator="@null"
-                    android:text="@string/button_addCategory"
+                    android:text="@string/button_addImage"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp"/>
+
+                <ImageView
+                    android:id="@+id/categoryImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
             </LinearLayout>
         </ScrollView>
 

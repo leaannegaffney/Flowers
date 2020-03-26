@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import kotlinx.android.synthetic.main.activity_quoteme.*
+import kotlinx.android.synthetic.main.activity_createcategory.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.toast
@@ -12,14 +12,14 @@ import org.wit.quoteme.R
 import org.wit.quoteme.main.MainApp
 import org.wit.quoteme.models.QuoteMeModel
 
-class QuoteMeActivity : AppCompatActivity(), AnkoLogger {
+class CreateCategoryActivity : AppCompatActivity(), AnkoLogger {
 
     var category = QuoteMeModel()
     lateinit var app : MainApp
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_quoteme)
+        setContentView(R.layout.activity_createcategory)
         app = application as MainApp
 
         var edit = false
@@ -48,7 +48,9 @@ class QuoteMeActivity : AppCompatActivity(), AnkoLogger {
         }
 
         toolbarAdd.title = title
+        toolbarAdd.setNavigationIcon(R.drawable.quote_bubble_foreground)
         setSupportActionBar(toolbarAdd)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

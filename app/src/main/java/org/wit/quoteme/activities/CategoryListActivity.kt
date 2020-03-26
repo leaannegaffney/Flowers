@@ -5,21 +5,20 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.*
-import kotlinx.android.synthetic.main.activity_quotemelist.*
+import kotlinx.android.synthetic.main.activity_categorylist.*
 import org.jetbrains.anko.intentFor
 import org.wit.quoteme.R
 import org.wit.quoteme.main.MainApp
 import org.jetbrains.anko.startActivityForResult
 import org.wit.quoteme.models.QuoteMeModel
-import org.jetbrains.anko.startActivityForResult
 
-class QuoteMeListActivity : AppCompatActivity(), CategoryListener {
+class CategoryListActivity : AppCompatActivity(), CategoryListener {
 
     lateinit var app: MainApp
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_quotemelist)
+        setContentView(R.layout.activity_categorylist)
         app = application as MainApp
 
         val layoutManager = LinearLayoutManager(this)
@@ -27,6 +26,7 @@ class QuoteMeListActivity : AppCompatActivity(), CategoryListener {
         recyclerView.adapter = QuoteMeAdapter(app.categories.findAll(), this)
 
         toolbarMain.title = title
+        toolbarMain.setNavigationIcon(R.drawable.quote_bubble_foreground)
         setSupportActionBar(toolbarMain)
     }
 
@@ -37,13 +37,13 @@ class QuoteMeListActivity : AppCompatActivity(), CategoryListener {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
-            R.id.item_add -> startActivityForResult<QuoteMeActivity>(0)
+            R.id.item_add -> startActivityForResult<CreateCategoryActivity>(0)
         }
         return super.onOptionsItemSelected(item)
     }
 
     override fun onCategoryClick(category: QuoteMeModel) {
-        startActivityForResult(intentFor<QuoteMeActivity>().putExtra("category_edit", category), 0)
+        startActivityForResult<AddImageToCategoryActivity>( 0)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
