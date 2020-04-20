@@ -34,4 +34,5 @@ class QuoteMeMemStore : QuoteMeStore, AnkoLogger {
     fun logAll() {
         categories.forEach{ info("${it}") }
     }
+
 }

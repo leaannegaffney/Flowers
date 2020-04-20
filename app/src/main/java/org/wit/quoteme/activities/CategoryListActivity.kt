@@ -47,7 +47,16 @@ class CategoryListActivity : AppCompatActivity(), CategoryListener {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        recyclerView.adapter?.notifyDataSetChanged()
+        loadCategories()
         super.onActivityResult(requestCode, resultCode, data)
+    }
+
+    private fun loadCategories() {
+        showCategories(app.categories.findAll())
+    }
+
+    fun showCategories(categories: List<QuoteMeModel>){
+        recyclerView.adapter = QuoteMeAdapter(categories, this)
+        recyclerView.adapter?.notifyDataSetChanged()
     }
 }
