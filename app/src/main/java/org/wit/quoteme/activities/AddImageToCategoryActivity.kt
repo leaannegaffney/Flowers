@@ -3,9 +3,11 @@ package org.wit.quoteme.activities
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_addimagetocategory.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
+import org.jetbrains.anko.startActivityForResult
 import org.wit.quoteme.R
 import org.wit.quoteme.helpers.readImage
 import org.wit.quoteme.helpers.showImagePicker
@@ -23,13 +25,15 @@ class AddImageToCategoryActivity : AppCompatActivity(), AnkoLogger{
         setContentView(R.layout.activity_addimagetocategory)
 
         toolbarCategory.title = title
-        toolbarCategory.setNavigationIcon(R.drawable.quote_bubble_foreground)
+
         setSupportActionBar(toolbarCategory)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeButtonEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
 
         chooseImage.setOnClickListener {
             showImagePicker(this, imageRequest)
         }
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -42,5 +46,16 @@ class AddImageToCategoryActivity : AppCompatActivity(), AnkoLogger{
                 }
             }
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId){
+            android.R.id.home -> {
+                info("Back arrow pressed")
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+
     }
 }
