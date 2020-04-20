@@ -35,4 +35,8 @@ class QuoteMeMemStore : QuoteMeStore, AnkoLogger {
         categories.forEach{ info("${it}") }
     }
 
+    override fun delete(category: QuoteMeModel) {
+        categories.remove(category)
+    }
+
 }

@@ -3,6 +3,7 @@ package org.wit.quoteme.activities
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_addimagetocategory.*
 import org.jetbrains.anko.AnkoLogger
@@ -36,6 +37,11 @@ class AddImageToCategoryActivity : AppCompatActivity(), AnkoLogger{
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_category, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
@@ -52,6 +58,10 @@ class AddImageToCategoryActivity : AppCompatActivity(), AnkoLogger{
         when (item?.itemId){
             android.R.id.home -> {
                 info("Back arrow pressed")
+                finish()
+            }
+            R.id.item_delete -> {
+                app.categories.delete(category)
                 finish()
             }
         }

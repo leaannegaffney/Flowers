@@ -54,7 +54,7 @@ class CreateCategoryActivity : AppCompatActivity(), AnkoLogger {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_category, menu)
+        menuInflater.inflate(R.menu.menu_list_category, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
