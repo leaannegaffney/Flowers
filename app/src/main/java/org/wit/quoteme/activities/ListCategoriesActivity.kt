@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.*
 import kotlinx.android.synthetic.main.activity_listcategories.*
+import org.jetbrains.anko.intentFor
 import org.wit.quoteme.R
 import org.wit.quoteme.main.MainApp
 import org.jetbrains.anko.startActivityForResult
@@ -43,7 +44,7 @@ class ListCategoriesActivity : AppCompatActivity(), CategoryListener {
     }
 
     override fun onCategoryClick(category: QuoteMeModel) {
-        startActivityForResult<AddQuotesActivity>( 0)
+        startActivityForResult(intentFor<CreateNewCategoryActivity>().putExtra("category_edit", category), 0)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

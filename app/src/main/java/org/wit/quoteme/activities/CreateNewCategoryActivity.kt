@@ -94,6 +94,7 @@ class CreateNewCategoryActivity : AppCompatActivity(), AnkoLogger {
                 if (data != null) {
                     category.image = data.getData().toString()
                     categoryImage.setImageBitmap(readImage(this, resultCode, data))
+                    chooseImage.setText(R.string.change_category_image)
                 }
             }
         }
