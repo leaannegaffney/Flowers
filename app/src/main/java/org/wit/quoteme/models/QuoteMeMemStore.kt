@@ -27,6 +27,7 @@ class QuoteMeMemStore : QuoteMeStore, AnkoLogger {
         var foundCategory: QuoteMeModel? = categories.find { p -> p.id == category.id }
         if (foundCategory != null) {
             foundCategory.title = category.title
+            foundCategory.image = category.image
             logAll()
         }
     }

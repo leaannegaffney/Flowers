@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.wit.quoteme.activities.AddImageToCategoryActivity">
+    tools:context="org.wit.quoteme.activities.AddQuotesActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -38,22 +38,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/chooseImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:background="@color/colorAccent"
-                    android:paddingBottom="8dp"
-                    android:paddingTop="8dp"
-                    android:text="@string/button_addImage"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="16sp"/>
-
-                <ImageView
-                    android:id="@+id/categoryImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
 
 
             </LinearLayout>

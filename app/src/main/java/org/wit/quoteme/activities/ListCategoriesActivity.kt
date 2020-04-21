@@ -5,25 +5,25 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.*
-import kotlinx.android.synthetic.main.activity_categorylist.*
-import org.jetbrains.anko.intentFor
+import kotlinx.android.synthetic.main.activity_listcategories.*
 import org.wit.quoteme.R
 import org.wit.quoteme.main.MainApp
 import org.jetbrains.anko.startActivityForResult
 import org.wit.quoteme.models.QuoteMeModel
 
-class CategoryListActivity : AppCompatActivity(), CategoryListener {
+class ListCategoriesActivity : AppCompatActivity(), CategoryListener {
 
     lateinit var app: MainApp
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_categorylist)
+        setContentView(R.layout.activity_listcategories)
         app = application as MainApp
 
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = QuoteMeAdapter(app.categories.findAll(), this)
+        loadCategories()
+
 
         toolbarMain.title = title
         toolbarMain.setNavigationIcon(R.drawable.quote_bubble_foreground)
@@ -37,13 +37,13 @@ class CategoryListActivity : AppCompatActivity(), CategoryListener {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
-           R.id.item_add -> startActivityForResult<CreateCategoryActivity>(0)
+           R.id.item_add -> startActivityForResult<CreateNewCategoryActivity>(0)
         }
         return super.onOptionsItemSelected(item)
     }
 
     override fun onCategoryClick(category: QuoteMeModel) {
-        startActivityForResult<AddImageToCategoryActivity>( 0)
+        startActivityForResult<AddQuotesActivity>( 0)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

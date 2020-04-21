@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.card_quoteme.view.*
 import org.wit.quoteme.R
+import org.wit.quoteme.helpers.readImageFromPath
 import org.wit.quoteme.models.QuoteMeModel
 
 interface CategoryListener {
@@ -30,6 +31,7 @@ class QuoteMeAdapter constructor(private var categories: List<QuoteMeModel>,
 
         fun bind(category: QuoteMeModel, listener : CategoryListener) {
             itemView.categoryTitle.text = category.title
+            itemView.imageIcon.setImageBitmap(readImageFromPath(itemView.context, category.image))
             itemView.setOnClickListener{ listener.onCategoryClick(category)}
         }
     }

@@ -10,11 +10,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="org.wit.quoteme.activities.CreateCategoryActivity">
+        <activity android:name="org.wit.quoteme.activities.CreateNewCategoryActivity">
         </activity>
-        <activity android:name="org.wit.quoteme.activities.AddImageToCategoryActivity">
+        <activity android:name="org.wit.quoteme.activities.AddQuotesActivity">
         </activity>
-        <activity android:name="org.wit.quoteme.activities.CategoryListActivity">
+        <activity android:name="org.wit.quoteme.activities.ListCategoriesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

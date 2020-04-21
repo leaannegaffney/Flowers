@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.wit.quoteme.activities.CreateCategoryActivity">
+    tools:context="org.wit.quoteme.activities.CreateNewCategoryActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -63,6 +63,23 @@
                     android:text="@string/button_addCategory"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp"/>
+
+                <Button
+                    android:id="@+id/chooseImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:background="@color/colorAccent"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp"
+                    android:text="@string/select_category_image"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"/>
+
+                <ImageView
+                    android:id="@+id/categoryImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
             </LinearLayout>
         </ScrollView>
