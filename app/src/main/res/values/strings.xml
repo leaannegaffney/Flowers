@@ -10,5 +10,7 @@
     <string name="change_category_image">Change Category Image</string>
     <string name="category_image">Category Image</string>
     <string name = "menu_deleteCategory">Delete</string>
+    <string name = "menu_editCategory">Edit</string>
+    <string name = "menu_addQuote">Add Quote</string>
 
 </resources>

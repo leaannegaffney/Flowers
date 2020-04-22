@@ -8,6 +8,7 @@ import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_createnewcategory.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
+import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.toast
 import org.wit.quoteme.R
 import org.wit.quoteme.helpers.readImage
@@ -67,9 +68,8 @@ class CreateNewCategoryActivity : AppCompatActivity(), AnkoLogger {
 
     }
 
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_category, menu)
+        menuInflater.inflate(R.menu.menu_editcategory, menu)
         if (edit && menu != null) menu.getItem(0).setVisible(true)
         return super.onCreateOptionsMenu(menu)
     }
@@ -81,7 +81,7 @@ class CreateNewCategoryActivity : AppCompatActivity(), AnkoLogger {
             }
             R.id.item_delete -> {
                 app.categories.delete(category)
-                finish()
+                startActivityForResult(intentFor<ListCategoriesActivity>(),0)
             }
         }
         return super.onOptionsItemSelected(item)
