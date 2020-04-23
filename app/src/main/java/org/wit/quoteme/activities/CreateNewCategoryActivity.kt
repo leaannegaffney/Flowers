@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import kotlinx.android.synthetic.main.activity_addquotes.*
 import kotlinx.android.synthetic.main.activity_createnewcategory.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
@@ -28,6 +29,10 @@ class CreateNewCategoryActivity : AppCompatActivity(), AnkoLogger {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_createnewcategory)
         app = application as MainApp
+
+        toolbarAdd.title = title
+        toolbarAdd.setNavigationIcon(R.drawable.quote_bubble_foreground)
+        setSupportActionBar(toolbarAdd)
 
 
         if (intent.hasExtra("category_edit")) {
@@ -62,9 +67,7 @@ class CreateNewCategoryActivity : AppCompatActivity(), AnkoLogger {
             showImagePicker(this, IMAGE_REQUEST)
         }
 
-        toolbarAdd.title = title
-        toolbarAdd.setNavigationIcon(R.drawable.quote_bubble_foreground)
-        setSupportActionBar(toolbarAdd)
+
 
     }
 

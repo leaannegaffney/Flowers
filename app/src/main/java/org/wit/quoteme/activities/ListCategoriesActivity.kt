@@ -16,7 +16,6 @@ import android.support.v7.widget.SearchView
 class ListCategoriesActivity : AppCompatActivity(), CategoryListener {
 
     lateinit var app: MainApp
-    //var category = QuoteMeModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,13 +34,11 @@ class ListCategoriesActivity : AppCompatActivity(), CategoryListener {
         fab.setOnClickListener {
             startActivityForResult<CreateNewCategoryActivity>(0)
         }
-
     }
 
+    //Try and retract the search bar when category is clicked
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
-        //Displaying the search bar but has no functionality.
-        //Not sure how to pull in the categories from QuoteMeJSONStore.kt to search
         val searchItem = menu?.findItem(R.id.item_search)
         if(searchItem != null) {
             val searchView = searchItem.actionView as SearchView
@@ -58,22 +55,6 @@ class ListCategoriesActivity : AppCompatActivity(), CategoryListener {
         }
         return super.onCreateOptionsMenu(menu)
     }
-
-    //Not needed but can't delete
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId) {
-            R.id.item_search -> {
-
-           }
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
-    //This was the original way to edit/delete category and works fine
-    // but I didn't want the edit/delete screen to appear when clicking on category
-    //fun onCategoryClick(category: QuoteMeModel) {
-        //startActivityForResult(intentFor<CreateNewCategoryActivity>().putExtra("category_edit", category), 0)
-    //}
 
     override fun onCategoryClick(category: QuoteMeModel) {
         startActivityForResult(intentFor<AddQuotesActivity>().putExtra("category_edit", category),0)

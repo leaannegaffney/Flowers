@@ -1,22 +1,16 @@
 package org.wit.quoteme.activities
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.*
 import kotlinx.android.synthetic.main.activity_addquotes.*
 import kotlinx.android.synthetic.main.activity_createnewcategory.*
-import kotlinx.android.synthetic.main.activity_listcategories.*
-import kotlinx.android.synthetic.main.card_quoteme.view.*
+import kotlinx.android.synthetic.main.card_quoteme.*
+import kotlinx.android.synthetic.main.card_quoteme.categoryTitle
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.intentFor
 import org.wit.quoteme.R
-import org.wit.quoteme.helpers.readImage
-import org.wit.quoteme.helpers.readImageFromPath
-import org.wit.quoteme.helpers.showImagePicker
 import org.wit.quoteme.main.MainApp
 import org.wit.quoteme.models.QuoteMeModel
 
@@ -30,10 +24,13 @@ class AddQuotesActivity : AppCompatActivity(), AnkoLogger {
         setContentView(R.layout.activity_addquotes)
         app = application as MainApp
 
-        toolbarCategory.title = title
+        //I want to change the toolbar to display the category title that it's in
+        //toolbarCategory.title = category.title
+        //toolbarCategory.title = title
+        category = intent.extras!!.getParcelable<QuoteMeModel>("category_edit")!!
+        toolbarCategory.title = category.title
         setSupportActionBar(toolbarCategory)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        category = intent.extras!!.getParcelable<QuoteMeModel>("category_edit")!!
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -55,10 +52,7 @@ class AddQuotesActivity : AppCompatActivity(), AnkoLogger {
 
             R.id.item_edit -> {
                 startActivityForResult(intentFor<CreateNewCategoryActivity>().putExtra("category_edit", category), 0)
-
-
                 finish()
-                //opens the right screen but is not linking to the current category so isn't updating or deleting anything
             }
 
         }
