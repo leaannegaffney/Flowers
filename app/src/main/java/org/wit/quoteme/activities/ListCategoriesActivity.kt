@@ -3,7 +3,6 @@ package org.wit.quoteme.activities
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import android.view.*
 import kotlinx.android.synthetic.main.activity_listcategories.*
@@ -13,10 +12,11 @@ import org.wit.quoteme.main.MainApp
 import org.jetbrains.anko.startActivityForResult
 import org.wit.quoteme.models.QuoteMeModel
 import android.support.v7.widget.SearchView
+
 class ListCategoriesActivity : AppCompatActivity(), CategoryListener {
 
     lateinit var app: MainApp
-    var category = QuoteMeModel()
+    //var category = QuoteMeModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +32,8 @@ class ListCategoriesActivity : AppCompatActivity(), CategoryListener {
         setSupportActionBar(toolbarMain)
 
         val fab: View = findViewById(R.id.fab)
-        fab.setOnClickListener { startActivityForResult<CreateNewCategoryActivity>(0)
+        fab.setOnClickListener {
+            startActivityForResult<CreateNewCategoryActivity>(0)
         }
 
     }
@@ -49,7 +50,8 @@ class ListCategoriesActivity : AppCompatActivity(), CategoryListener {
                     return true
                 }
 
-                override fun onQueryTextChange(newText: String?): Boolean {
+                override fun onQueryTextChange(newText: String): Boolean {
+                    showCategories(app.categories.search(newText))
                     return true
                 }
             })
@@ -57,23 +59,24 @@ class ListCategoriesActivity : AppCompatActivity(), CategoryListener {
         return super.onCreateOptionsMenu(menu)
     }
 
-
+    //Not needed but can't delete
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
-            R.id.item_add -> {
-                startActivityForResult(intentFor<CreateNewCategoryActivity>().putExtra("category_edit", category), 0)
+            R.id.item_search -> {
+
            }
         }
         return super.onOptionsItemSelected(item)
     }
+
     //This was the original way to edit/delete category and works fine
     // but I didn't want the edit/delete screen to appear when clicking on category
-    /*override fun onCategoryClick(category: QuoteMeModel) {
-        startActivityForResult(intentFor<CreateNewCategoryActivity>().putExtra("category_edit", category), 0)
-    }*/
+    //fun onCategoryClick(category: QuoteMeModel) {
+        //startActivityForResult(intentFor<CreateNewCategoryActivity>().putExtra("category_edit", category), 0)
+    //}
 
     override fun onCategoryClick(category: QuoteMeModel) {
-        startActivityForResult(intentFor<AddQuotesActivity>(),0)
+        startActivityForResult(intentFor<AddQuotesActivity>().putExtra("category_edit", category),0)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

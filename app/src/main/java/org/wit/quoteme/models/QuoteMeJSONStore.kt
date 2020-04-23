@@ -61,4 +61,8 @@ class QuoteMeJSONStore : QuoteMeStore, AnkoLogger {
         val jsonString = read(context, JSON_FILE)
         categories = Gson().fromJson(jsonString, listType)
     }
+
+    override fun search(searchTerm: String) : List<QuoteMeModel> {
+        return categories.filter { category -> category.title.contains(searchTerm)}
+    }
 }
