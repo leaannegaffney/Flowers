@@ -1,4 +1,4 @@
-package org.wit.quoteme.activities
+package org.wit.quoteme.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -14,10 +14,15 @@ interface CategoryListener {
 }
 
 class QuoteMeAdapter constructor(private var categories: List<QuoteMeModel>,
-                                 private val listener: CategoryListener) : RecyclerView.Adapter<QuoteMeAdapter.MainHolder>() {
+                                 private val listener: CategoryListener
+) : RecyclerView.Adapter<QuoteMeAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
-        return MainHolder(LayoutInflater.from(parent?.context).inflate(R.layout.card_quoteme, parent, false))
+        return MainHolder(
+            LayoutInflater.from(
+                parent?.context
+            ).inflate(R.layout.card_quoteme, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: MainHolder, position: Int) {

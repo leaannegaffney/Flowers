@@ -13,6 +13,8 @@
         </activity>
         <activity android:name="org.wit.quoteme.activities.AddQuotesActivity">
         </activity>
+        <activity android:name="org.wit.quoteme.activities.ListQuotesActivity">
+        </activity>
         <activity android:name="org.wit.quoteme.activities.ListCategoriesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

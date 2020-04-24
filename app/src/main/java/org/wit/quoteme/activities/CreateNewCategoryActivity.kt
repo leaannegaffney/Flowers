@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import kotlinx.android.synthetic.main.activity_addquotes.*
 import kotlinx.android.synthetic.main.activity_createnewcategory.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
@@ -66,8 +65,6 @@ class CreateNewCategoryActivity : AppCompatActivity(), AnkoLogger {
         chooseImage.setOnClickListener{
             showImagePicker(this, IMAGE_REQUEST)
         }
-
-
 
     }
 

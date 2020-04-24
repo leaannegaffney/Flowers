@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/item_edit"
-        android:icon="@android:drawable/ic_menu_edit"
-        android:title="Edit Category"
+        android:id="@+id/item_cancel"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:title="@string/menu_cancelCategory"
         app:showAsAction="always"/>
 
 </menu>

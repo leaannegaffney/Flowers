@@ -12,8 +12,11 @@ import org.wit.quoteme.main.MainApp
 import org.jetbrains.anko.startActivityForResult
 import org.wit.quoteme.models.QuoteMeModel
 import android.support.v7.widget.SearchView
+import org.wit.quoteme.adapter.CategoryListener
+import org.wit.quoteme.adapter.QuoteMeAdapter
 
-class ListCategoriesActivity : AppCompatActivity(), CategoryListener {
+class ListCategoriesActivity : AppCompatActivity(),
+    CategoryListener {
 
     lateinit var app: MainApp
 
@@ -57,7 +60,8 @@ class ListCategoriesActivity : AppCompatActivity(), CategoryListener {
     }
 
     override fun onCategoryClick(category: QuoteMeModel) {
-        startActivityForResult(intentFor<AddQuotesActivity>().putExtra("category_edit", category),0)
+        startActivityForResult(intentFor<ListQuotesActivity>().putExtra("category_edit", category),0)
+        toolbarMain.collapseActionView()//closes search bar but doesn't open a category as cleanly as I'd like
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -70,7 +74,8 @@ class ListCategoriesActivity : AppCompatActivity(), CategoryListener {
     }
 
     fun showCategories(categories: List<QuoteMeModel>){
-        recyclerView.adapter = QuoteMeAdapter(categories, this)
+        recyclerView.adapter =
+            QuoteMeAdapter(categories, this)
         recyclerView.adapter?.notifyDataSetChanged()
     }
 
