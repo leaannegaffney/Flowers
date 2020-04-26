@@ -1,16 +1,15 @@
 <resources>
-    <string name="app_name">Quote Me</string>
-    <string name="button_addCategory">Add Category</string>
-    <string name="hint_categoryTitle">Category Title</string>
-    <string name="menu_addCategory">Add</string>
-    <string name="menu_cancelCategory">Cancel</string>
-    <string name="enter_category_title"> Please enter a Category Name </string>
-    <string name="save_category"> Save Category </string>
-    <string name="select_category_image">Select Category Image</string>
-    <string name="change_category_image">Change Category Image</string>
-    <string name="category_image">Category Image</string>
-    <string name = "menu_deleteCategory">Delete</string>
-    <string name = "menu_editCategory">Edit</string>
-    <string name = "menu_addQuote">Add Quote</string>
+    <string name="app_name">Buncha Flowers</string>
+    <string name="button_addFlower">Add Flower</string>
+    <string name="hint_flowerName">Flower Name</string>
+    <string name="menu_addFlower">Add Flower</string>
+    <string name="menu_cancelFlower">Cancel</string>
+    <string name="enter_flower_name"> Please enter Flower Name </string>
+    <string name="save_flower"> Save Flower </string>
+    <string name="select_flower_image">Select Flower Image</string>
+    <string name="change_flower_image">Change Flower Image</string>
+    <string name="flower_image">Flower Image</string>
+    <string name = "menu_deleteFlower">Delete</string>
+    <string name = "menu_editFlower">Edit</string>
 
 </resources>
