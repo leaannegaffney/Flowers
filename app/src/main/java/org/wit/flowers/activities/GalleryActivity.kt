@@ -1,10 +1,11 @@
 package org.wit.flowers.activities
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.view.Menu
 import android.view.MenuItem
+import android.support.v7.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_createnewflower.*
 import kotlinx.android.synthetic.main.activity_gallery.*
 import kotlinx.android.synthetic.main.activity_gallery.recyclerView

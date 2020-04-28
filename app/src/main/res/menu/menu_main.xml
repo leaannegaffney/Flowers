@@ -6,14 +6,12 @@
         android:id="@+id/gallery"
         android:icon="@android:drawable/ic_menu_camera"
         android:title="Gallery"
-        app:showAsAction="always|collapseActionView"
-        app:actionViewClass="android.support.v7.widget.SearchView"/>
+        app:showAsAction="collapseActionView" />
     <item
         android:id="@+id/garden_locations"
         android:icon="@android:drawable/ic_menu_compass"
         android:title="Garden Locations"
-        app:showAsAction="always|collapseActionView"
-        app:actionViewClass="android.support.v7.widget.SearchView"/>
+        app:showAsAction="collapseActionView" />
     <item
         android:id="@+id/item_search"
         android:icon="@android:drawable/ic_menu_search"

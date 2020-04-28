@@ -4,7 +4,10 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.activity_createnewflower.view.*
+import kotlinx.android.synthetic.main.activity_flower_detail.view.*
 import kotlinx.android.synthetic.main.card_flowers.view.*
+import kotlinx.android.synthetic.main.card_flowers.view.flowerName
 import org.wit.flowers.R
 import org.wit.flowers.helpers.readImageFromPath
 import org.wit.flowers.models.FlowerModel

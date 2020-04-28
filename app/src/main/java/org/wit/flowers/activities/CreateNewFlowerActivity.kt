@@ -1,11 +1,13 @@
 package org.wit.flowers.activities
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_createnewflower.*
+import kotlinx.android.synthetic.main.activity_createnewflower.flowerImage
+import kotlinx.android.synthetic.main.activity_flower_detail.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.intentFor
@@ -37,6 +39,7 @@ class CreateNewFlowerActivity : AppCompatActivity(), AnkoLogger {
             edit = true
             flower = intent.extras!!.getParcelable<FlowerModel>("flower_edit")!!
             flowerName.setText(flower.name)
+            flowerInformation.setText(flower.information)
             flowerImage.setImageBitmap(readImageFromPath(this, flower.image))
             if (flower.image != null){
                 chooseImage.setText(R.string.change_flower_image)
@@ -47,6 +50,7 @@ class CreateNewFlowerActivity : AppCompatActivity(), AnkoLogger {
 
         btnAdd.setOnClickListener() {
             flower.name = flowerName.text.toString()
+            flower.information = flowerInformation.text.toString()
             if (flower.name.isEmpty()) {
                 toast(R.string.enter_flower_name)
             }else{
@@ -55,7 +59,7 @@ class CreateNewFlowerActivity : AppCompatActivity(), AnkoLogger {
                 }else {
                     app.flowers.create(flower.copy())
                 }
-                info("add Button Pressed: $flowerName")
+                info("add Button Pressed: $flowerName, $flowerInformation")
                 setResult(AppCompatActivity.RESULT_OK)
                 finish()
             }

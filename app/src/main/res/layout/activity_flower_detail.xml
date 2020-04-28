@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="org.wit.flowers.activities.FlowerDetailActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -19,15 +20,45 @@
             android:id="@+id/toolbarFlowerDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:titleTextColor="@color/colorPrimary"/>
+            app:titleTextColor="@color/colorPrimary" />
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical"
+            android:paddingTop="50dp">
 
 
-</android.support.design.widget.CoordinatorLayout>
+            <ImageView
+                android:id="@+id/flowerImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/flowerNameDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:paddingBottom="20dp"/>
+
+            <TextView
+                android:id="@+id/flowerInformationDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

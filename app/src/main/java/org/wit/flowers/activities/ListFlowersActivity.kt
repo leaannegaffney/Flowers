@@ -1,9 +1,10 @@
 package org.wit.flowers.activities
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.SearchView
 import android.view.*
 import kotlinx.android.synthetic.main.activity_listflowers.*
 import org.jetbrains.anko.intentFor
@@ -11,12 +12,12 @@ import org.wit.flowers.R
 import org.wit.flowers.main.MainApp
 import org.jetbrains.anko.startActivityForResult
 import org.wit.flowers.models.FlowerModel
-import android.support.v7.widget.SearchView
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.wit.flowers.adapter.FlowerAdapter
 import org.wit.flowers.adapter.FlowerListener
 
+//close search bar when launching new activity
 class ListFlowersActivity : AppCompatActivity(), FlowerListener, AnkoLogger {
 
     lateinit var app: MainApp
@@ -39,12 +40,11 @@ class ListFlowersActivity : AppCompatActivity(), FlowerListener, AnkoLogger {
         }
     }
 
-    //Try and hide gallery and map icons when search clicked
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
-        val searchItem = menu?.findItem(R.id.item_search)
+        var searchItem = menu?.findItem(R.id.item_search)
         if(searchItem != null) {
-            val searchView = searchItem.actionView as SearchView
+            var searchView = searchItem.actionView as SearchView
             searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
                 override fun onQueryTextSubmit(p0: String?): Boolean {
                     return true
@@ -63,7 +63,6 @@ class ListFlowersActivity : AppCompatActivity(), FlowerListener, AnkoLogger {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             android.R.id.home -> {
-                info("Back arrow pressed")
                 finish()
             }
 
@@ -72,13 +71,16 @@ class ListFlowersActivity : AppCompatActivity(), FlowerListener, AnkoLogger {
                 finish()
             }
 
+            R.id.garden_locations -> {
+                startActivityForResult(intentFor<MapsActivity>(), 0)
+            }
+
         }
         return super.onOptionsItemSelected(item)
     }
 
     override fun onFlowerClick(flower: FlowerModel) {
         startActivityForResult(intentFor<FlowerDetailActivity>().putExtra("flower_edit", flower),0)
-        toolbarMain.collapseActionView()//closes search bar but doesn't open a category as cleanly as I'd like
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

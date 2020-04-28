@@ -45,6 +45,7 @@ class FlowerJSONStore : FlowerStore, AnkoLogger {
         var foundflower: FlowerModel? = flowersList.find{p -> p.id == flower.id}
         if (foundflower != null) {
             foundflower.name = flower.name
+            foundflower.information = flower.information
             foundflower.image = flower.image
         }
         serialize()

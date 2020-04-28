@@ -51,18 +51,18 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="14sp"/>
 
-                <Button
-                    android:id="@+id/btnAdd"
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/flowerInformation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:background="@color/colorAccent"
-                    android:paddingBottom="8dp"
-                    android:paddingTop="8dp"
-                    android:stateListAnimator="@null"
-                    android:text="@string/button_addFlower"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="16sp"/>
+                    android:layout_margin="8dp"
+                    android:hint="@string/hint_flower_information"
+                    android:inputType="textMultiLine"
+                    android:padding="8dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="14sp"
+                    android:isScrollContainer="true"
+                    android:minHeight="100dp"/>
 
                 <Button
                     android:id="@+id/chooseImage"
@@ -80,6 +80,19 @@
                     android:id="@+id/flowerImage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
+
+                <Button
+                    android:id="@+id/btnAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:background="@color/colorAccent"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp"
+                    android:stateListAnimator="@null"
+                    android:text="@string/button_addFlower"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"/>
 
             </LinearLayout>
         </ScrollView>

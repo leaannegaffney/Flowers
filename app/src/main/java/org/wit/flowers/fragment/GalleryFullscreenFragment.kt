@@ -10,11 +10,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import kotlinx.android.synthetic.main.image_fullscreen.view.*
 import org.wit.flowers.R
 import org.wit.flowers.adapter.Image
 import org.wit.flowers.helpers.GlideApp
 import org.wit.flowers.helpers.ZoomOutPageTransformer
-import kotlinx.android.synthetic.main.image_fullscreen.view.*
 
 class GalleryFullscreenFragment : DialogFragment() {
     private var imageList = ArrayList<Image>()
@@ -22,6 +22,7 @@ class GalleryFullscreenFragment : DialogFragment() {
     lateinit var tvGalleryTitle: TextView
     lateinit var viewPager: ViewPager
     lateinit var galleryPagerAdapter: GalleryPagerAdapter
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_gallery_fullscreen, container, false)
         viewPager = view.findViewById(R.id.viewPager)
