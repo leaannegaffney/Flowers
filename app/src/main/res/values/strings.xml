@@ -3,8 +3,12 @@
     <string name="button_addFlower">Add Flower</string>
     <string name="hint_flowerName">Flower Name</string>
     <string name="menu_addFlower">Add Flower</string>
+    <string name="hint_flower_information">Flower Information</string>
+    <string name="enter_flower_name"> Please enter flower name</string>
+    <string name = "flower_length">Flower name should be more than 3 characters</string>
+    <string name = "enter_flower_information">Please enter flower information</string>
+    <string name = "enter_flower_image">Please add a flower image</string>
     <string name="menu_cancelFlower">Cancel</string>
-    <string name="enter_flower_name"> Please enter flower name greater than 3 characters </string>
     <string name="save_flower"> Save Flower </string>
     <string name="select_flower_image">Select Flower Image</string>
     <string name="change_flower_image">Change Flower Image</string>
@@ -12,8 +16,6 @@
     <string name="menu_deleteFlower">Delete</string>
     <string name="menu_editFlower">Edit</string>
     <string name="title_activity_maps">Map</string>
-    <string name="hint_flower_information">Flower Information</string>
-
-    <string name = "pins_feed">https://gist.githubusercontent.com/leaannegaffney/164c5008234a82412a5b7caecceb9e20/raw/d0192c6ffabf2d34986f44278ca4fdcfa048d548</string>
+    <string name="pins_feed">https://gist.githubusercontent.com/leaannegaffney/164c5008234a82412a5b7caecceb9e20/raw/d0192c6ffabf2d34986f44278ca4fdcfa048d548</string>
 
 </resources>

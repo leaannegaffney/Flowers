@@ -7,7 +7,7 @@ import org.wit.flowers.models.*
 
 class MainApp : Application(), AnkoLogger {
 
-    lateinit var flowers : FlowerStore
+    lateinit var flowers: FlowerStore
 
     override fun onCreate() {
         super.onCreate()

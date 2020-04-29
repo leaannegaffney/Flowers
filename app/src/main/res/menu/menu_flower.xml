@@ -6,6 +6,6 @@
         android:id="@+id/item_edit"
         android:icon="@android:drawable/ic_menu_edit"
         android:title="Edit Flower"
-        app:showAsAction="always"/>
+        app:showAsAction="always" />
 
 </menu>

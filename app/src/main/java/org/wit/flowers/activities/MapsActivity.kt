@@ -21,7 +21,7 @@ import org.jetbrains.anko.info
 import org.wit.flowers.R
 import java.util.*
 
-
+// Some code taken from https://www.raywenderlich.com/230-introduction-to-google-maps-api-for-android-with-kotlin
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener, AnkoLogger {
 
     lateinit var map: GoogleMap
@@ -30,7 +30,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1
-        private const val PLACE_PICKER_REQUEST = 3
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +38,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -65,7 +63,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             }
         }
         setUpMap()
-
     }
 
     private fun setUpMap() {
@@ -82,18 +79,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             return
         }
         map.isMyLocationEnabled = true
-
     }
 
     override fun onMarkerClick(p0: Marker?) = false
 
-
-    private fun placeMarkerOnMap(location: LatLng, name: String ) {
+    private fun placeMarkerOnMap(location: LatLng, name: String) {
         val title = getAddress(location, name)
         info("The address is $title")
-        map.addMarker(MarkerOptions().title(title).position(location).draggable(true))
-            .showInfoWindow()
-
+        map.addMarker(MarkerOptions().title(title).position(location).draggable(true)).showInfoWindow()
     }
 
     private fun getAddress(location: LatLng, name: String): String {

@@ -37,7 +37,6 @@ class GalleryActivity : AppCompatActivity(), GalleryImageClickListener, AnkoLogg
         toolbarGallery.title = title
         setSupportActionBar(toolbarGallery)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -51,14 +50,13 @@ class GalleryActivity : AppCompatActivity(), GalleryImageClickListener, AnkoLogg
                 info("Back arrow pressed")
                 startActivityForResult<ListFlowersActivity>(0)
             }
-
         }
         return super.onOptionsItemSelected(item)
     }
 
     private fun loadImages() {
         imageList.add(Image("https://i.ibb.co/RNn6C9y/image1.jpg", "Pink Dahlia"))
-        imageList.add(Image("https://i.ibb.co/P9cgMr1/image2.jpg" , "Pink Rose"))
+        imageList.add(Image("https://i.ibb.co/P9cgMr1/image2.jpg", "Pink Rose"))
         imageList.add(Image("https://i.ibb.co/GCYyk5x/image3.jpg", "Sunflower"))
         imageList.add(Image("https://i.ibb.co/qNMGycd/image4.jpg", "Pink Daisies"))
         imageList.add(Image("https://i.ibb.co/Jmqg8qY/image5.jpg", "Dahlia Mixture"))

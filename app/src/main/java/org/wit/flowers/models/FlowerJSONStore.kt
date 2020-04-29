@@ -42,7 +42,7 @@ class FlowerJSONStore : FlowerStore, AnkoLogger {
 
     override fun update(flower: FlowerModel) {
         val flowersList = findAll() as ArrayList<FlowerModel>
-        var foundflower: FlowerModel? = flowersList.find{p -> p.id == flower.id}
+        var foundflower: FlowerModel? = flowersList.find { p -> p.id == flower.id }
         if (foundflower != null) {
             foundflower.name = flower.name
             foundflower.information = flower.information
@@ -66,7 +66,7 @@ class FlowerJSONStore : FlowerStore, AnkoLogger {
         flowers = Gson().fromJson(jsonString, listType)
     }
 
-    override fun search(searchTerm: String) : List<FlowerModel> {
-        return flowers.filter { flower -> flower.name.contains(searchTerm)}
+    override fun search(searchTerm: String): List<FlowerModel> {
+        return flowers.filter { flower -> flower.name.contains(searchTerm) }
     }
 }

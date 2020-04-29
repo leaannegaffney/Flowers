@@ -41,9 +41,9 @@ class ListFlowersActivity : AppCompatActivity(), FlowerListener, AnkoLogger {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         var searchItem = menu?.findItem(R.id.item_search)
-        if(searchItem != null) {
+        if (searchItem != null) {
             var searchView = searchItem.actionView as SearchView
-            searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(p0: String?): Boolean {
                     return true
                 }
@@ -55,7 +55,6 @@ class ListFlowersActivity : AppCompatActivity(), FlowerListener, AnkoLogger {
             })
         }
         return super.onCreateOptionsMenu(menu)
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -63,22 +62,19 @@ class ListFlowersActivity : AppCompatActivity(), FlowerListener, AnkoLogger {
             android.R.id.home -> {
                 finish()
             }
-
             R.id.gallery -> {
                 startActivityForResult(intentFor<GalleryActivity>(), 0)
                 finish()
             }
-
             R.id.garden_locations -> {
                 startActivityForResult(intentFor<MapsActivity>(), 0)
             }
-
         }
         return super.onOptionsItemSelected(item)
     }
 
     override fun onFlowerClick(flower: FlowerModel) {
-        startActivityForResult(intentFor<FlowerDetailActivity>().putExtra("flower_edit", flower),0)
+        startActivityForResult(intentFor<FlowerDetailActivity>().putExtra("flower_edit", flower), 0)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -90,10 +86,9 @@ class ListFlowersActivity : AppCompatActivity(), FlowerListener, AnkoLogger {
         showFlowers(app.flowers.findAll())
     }
 
-    fun showFlowers(flowers: List<FlowerModel>){
+    fun showFlowers(flowers: List<FlowerModel>) {
         recyclerView.adapter =
             FlowerAdapter(flowers, this)
         recyclerView.adapter?.notifyDataSetChanged()
     }
-
 }

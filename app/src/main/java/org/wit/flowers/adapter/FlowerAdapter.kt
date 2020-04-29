@@ -14,9 +14,9 @@ interface FlowerListener {
     fun onFlowerClick(flower: FlowerModel)
 }
 
-class FlowerAdapter constructor(private var flowers: List<FlowerModel>,
-                                 private val listener: FlowerListener
-) : RecyclerView.Adapter<FlowerAdapter.MainHolder>() {
+class FlowerAdapter constructor(
+    private var flowers: List<FlowerModel>,
+    private val listener: FlowerListener) : RecyclerView.Adapter<FlowerAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
         return MainHolder(
@@ -35,10 +35,10 @@ class FlowerAdapter constructor(private var flowers: List<FlowerModel>,
 
     class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(flower: FlowerModel, listener : FlowerListener) {
+        fun bind(flower: FlowerModel, listener: FlowerListener) {
             itemView.flowerName.text = flower.name
             itemView.imageIcon.setImageBitmap(readImageFromPath(itemView.context, flower.image))
-            itemView.setOnClickListener{ listener.onFlowerClick(flower)}
+            itemView.setOnClickListener { listener.onFlowerClick(flower) }
         }
     }
 }

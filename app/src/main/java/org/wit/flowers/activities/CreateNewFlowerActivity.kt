@@ -21,7 +21,7 @@ import org.wit.flowers.models.FlowerModel
 class CreateNewFlowerActivity : AppCompatActivity(), AnkoLogger {
 
     var flower = FlowerModel()
-    lateinit var app : MainApp
+    lateinit var app: MainApp
     var edit = false
     val IMAGE_REQUEST = 1
 
@@ -40,7 +40,7 @@ class CreateNewFlowerActivity : AppCompatActivity(), AnkoLogger {
             flowerName.setText(flower.name)
             flowerInformation.setText(flower.information)
             flowerImage.setImageBitmap(readImageFromPath(this, flower.image))
-            if (flower.image != null){
+            if (flower.image != null) {
                 chooseImage.setText(R.string.change_flower_image)
             }
             btnAdd.setText(R.string.save_flower)
@@ -55,30 +55,28 @@ class CreateNewFlowerActivity : AppCompatActivity(), AnkoLogger {
                 return@setOnClickListener
             }
             if (flower.name.length < 3) {
-                toast("Flower name should be more than 3 characters")
+                toast(R.string.flower_length)
                 return@setOnClickListener
             }
-            if(flower.information.isEmpty()){
-                toast("Please enter flower information")
+            if (flower.information.isEmpty()) {
+                toast(R.string.enter_flower_information)
                 return@setOnClickListener
             }
-            if(flower.image.isEmpty()){
-                toast("Please add a flower image")
+            if (flower.image.isEmpty()) {
+                toast(R.string.enter_flower_image)
                 return@setOnClickListener
-            }
-            else {
+            } else {
                 if (edit) {
                     app.flowers.update(flower.copy())
                 } else {
                     app.flowers.create(flower.copy())
                 }
             }
-                info("add Button Pressed: $flowerName, $flowerInformation")
-                setResult(AppCompatActivity.RESULT_OK)
-                finish()
-            }
-
-        chooseImage.setOnClickListener{
+            info("add Button Pressed: $flowerName, $flowerInformation")
+            setResult(AppCompatActivity.RESULT_OK)
+            finish()
+        }
+        chooseImage.setOnClickListener {
             showImagePicker(this, IMAGE_REQUEST)
         }
 
@@ -93,11 +91,11 @@ class CreateNewFlowerActivity : AppCompatActivity(), AnkoLogger {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.item_cancel -> {
-                startActivityForResult(intentFor<ListFlowersActivity>(),0)
+                startActivityForResult(intentFor<ListFlowersActivity>(), 0)
             }
             R.id.item_delete -> {
                 app.flowers.delete(flower)
-                startActivityForResult(intentFor<ListFlowersActivity>(),0)
+                startActivityForResult(intentFor<ListFlowersActivity>(), 0)
             }
         }
         return super.onOptionsItemSelected(item)

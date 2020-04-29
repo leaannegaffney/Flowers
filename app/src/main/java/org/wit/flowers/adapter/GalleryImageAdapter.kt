@@ -10,6 +10,7 @@ import org.wit.flowers.R
 import org.wit.flowers.helpers.GlideApp
 import kotlinx.android.synthetic.main.item_gallery_image.view.*
 
+//Some code taken from https://thesimplycoder.com/137/android-image-gallery-using-kotlin-tutorial/
 class GalleryImageAdapter(private val itemList: List<Image>) : RecyclerView.Adapter<GalleryImageAdapter.ViewHolder>() {
 
     private var context: Context? = null
@@ -17,8 +18,10 @@ class GalleryImageAdapter(private val itemList: List<Image>) : RecyclerView.Adap
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         context = parent.context
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_gallery_image, parent,
-            false)
+        val view = LayoutInflater.from(parent.context).inflate(
+            R.layout.item_gallery_image, parent,
+            false
+        )
         return ViewHolder(view)
     }
 
@@ -33,13 +36,12 @@ class GalleryImageAdapter(private val itemList: List<Image>) : RecyclerView.Adap
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind() {
             val image = itemList.get(adapterPosition)
-            // load image
             GlideApp.with(context!!)
                 .load(image.imageUrl)
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(itemView.ivGalleryImage)
-            // adding click or tap handler for our image layout
+
             itemView.container.setOnClickListener {
                 listener?.onClick(adapterPosition)
             }
