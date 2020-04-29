@@ -4,7 +4,7 @@
     <string name="hint_flowerName">Flower Name</string>
     <string name="menu_addFlower">Add Flower</string>
     <string name="menu_cancelFlower">Cancel</string>
-    <string name="enter_flower_name"> Please enter Flower Name </string>
+    <string name="enter_flower_name"> Please enter flower name greater than 3 characters </string>
     <string name="save_flower"> Save Flower </string>
     <string name="select_flower_image">Select Flower Image</string>
     <string name="change_flower_image">Change Flower Image</string>

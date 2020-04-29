@@ -7,7 +7,6 @@ import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_createnewflower.*
 import kotlinx.android.synthetic.main.activity_createnewflower.flowerImage
-import kotlinx.android.synthetic.main.activity_flower_detail.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.intentFor
@@ -53,17 +52,31 @@ class CreateNewFlowerActivity : AppCompatActivity(), AnkoLogger {
             flower.information = flowerInformation.text.toString()
             if (flower.name.isEmpty()) {
                 toast(R.string.enter_flower_name)
-            }else{
-                if (edit){
+                return@setOnClickListener
+            }
+            if (flower.name.length < 3) {
+                toast("Flower name should be more than 3 characters")
+                return@setOnClickListener
+            }
+            if(flower.information.isEmpty()){
+                toast("Please enter flower information")
+                return@setOnClickListener
+            }
+            if(flower.image.isEmpty()){
+                toast("Please add a flower image")
+                return@setOnClickListener
+            }
+            else {
+                if (edit) {
                     app.flowers.update(flower.copy())
-                }else {
+                } else {
                     app.flowers.create(flower.copy())
                 }
+            }
                 info("add Button Pressed: $flowerName, $flowerInformation")
                 setResult(AppCompatActivity.RESULT_OK)
                 finish()
             }
-        }
 
         chooseImage.setOnClickListener{
             showImagePicker(this, IMAGE_REQUEST)
@@ -80,7 +93,7 @@ class CreateNewFlowerActivity : AppCompatActivity(), AnkoLogger {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.item_cancel -> {
-                finish()
+                startActivityForResult(intentFor<ListFlowersActivity>(),0)
             }
             R.id.item_delete -> {
                 app.flowers.delete(flower)
@@ -102,4 +115,5 @@ class CreateNewFlowerActivity : AppCompatActivity(), AnkoLogger {
             }
         }
     }
+
 }

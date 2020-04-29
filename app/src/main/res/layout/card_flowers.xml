@@ -14,20 +14,21 @@
 
         <ImageView
             android:id="@+id/imageIcon"
-            android:contentDescription="@string/flower_image"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginEnd="16dp"/>
+            android:layout_marginEnd="16dp"
+            android:contentDescription="@string/flower_image" />
 
         <TextView
             android:id="@+id/flowerName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
+            android:layout_marginTop="19dp"
             android:layout_toEndOf="@+id/imageIcon"
-            android:textSize="30sp"/>
+            android:textSize="30sp" />
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

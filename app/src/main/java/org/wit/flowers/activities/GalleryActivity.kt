@@ -5,14 +5,10 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.view.Menu
 import android.view.MenuItem
-import android.support.v7.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.activity_createnewflower.*
 import kotlinx.android.synthetic.main.activity_gallery.*
 import kotlinx.android.synthetic.main.activity_gallery.recyclerView
-import kotlinx.android.synthetic.main.activity_listflowers.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
-import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivityForResult
 import org.wit.flowers.R
 import org.wit.flowers.adapter.GalleryImageAdapter
@@ -21,7 +17,7 @@ import org.wit.flowers.adapter.Image
 import org.wit.flowers.fragment.GalleryFullscreenFragment
 
 class GalleryActivity : AppCompatActivity(), GalleryImageClickListener, AnkoLogger {
-    // gallery column count
+
     private val SPAN_COUNT = 2
     private val imageList = ArrayList<Image>()
     lateinit var galleryAdapter: GalleryImageAdapter
@@ -29,13 +25,13 @@ class GalleryActivity : AppCompatActivity(), GalleryImageClickListener, AnkoLogg
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gallery)
-        // init adapter
+
         galleryAdapter = GalleryImageAdapter(imageList)
         galleryAdapter.listener = this
-        // init recyclerview
+
         recyclerView.layoutManager = GridLayoutManager(this, SPAN_COUNT)
         recyclerView.adapter = galleryAdapter
-        // load images
+
         loadImages()
 
         toolbarGallery.title = title
@@ -74,7 +70,6 @@ class GalleryActivity : AppCompatActivity(), GalleryImageClickListener, AnkoLogg
     }
 
     override fun onClick(position: Int) {
-        // handle click of image
         val bundle = Bundle()
         bundle.putSerializable("images", imageList)
         bundle.putInt("position", position)

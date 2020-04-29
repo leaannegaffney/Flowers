@@ -1,25 +1,15 @@
 package org.wit.flowers.activities
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.ImageView
-import kotlinx.android.synthetic.main.activity_createnewflower.*
 import kotlinx.android.synthetic.main.activity_flower_detail.*
 import kotlinx.android.synthetic.main.activity_flower_detail.flowerImage
-import kotlinx.android.synthetic.main.activity_listflowers.*
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
 import org.jetbrains.anko.intentFor
-import org.jetbrains.anko.startActivityForResult
 import org.wit.flowers.R
-import org.wit.flowers.helpers.readImage
 import org.wit.flowers.helpers.readImageFromPath
-import org.wit.flowers.main.MainApp
 import org.wit.flowers.models.FlowerModel
 
 class FlowerDetailActivity: AppCompatActivity(), AnkoLogger {

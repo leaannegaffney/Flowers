@@ -13,11 +13,9 @@ import org.wit.flowers.main.MainApp
 import org.jetbrains.anko.startActivityForResult
 import org.wit.flowers.models.FlowerModel
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
 import org.wit.flowers.adapter.FlowerAdapter
 import org.wit.flowers.adapter.FlowerListener
 
-//close search bar when launching new activity
 class ListFlowersActivity : AppCompatActivity(), FlowerListener, AnkoLogger {
 
     lateinit var app: MainApp
